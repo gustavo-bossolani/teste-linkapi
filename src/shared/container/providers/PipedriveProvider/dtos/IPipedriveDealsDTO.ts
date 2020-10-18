@@ -32,6 +32,7 @@ interface IDataDeal {
   status: string;
   won_time: string;
   products_count: number;
+  first_won_time: string;
   expected_close_date: string;
   formatted_value: string;
 }
