@@ -13,8 +13,8 @@ export default class BlingProvider implements IBlingProvider {
     <?xml version="1.0" encoding="UTF-8"?>
     <pedido>
       <data>${pedido.data}</data>
-      <data_saida>${pedido.data_saida}</data_saida>
-      <data_prevista>${pedido.data_prevista}</data_prevista>
+      <data_saida>${pedido?.data_saida}</data_saida>
+      <data_prevista>${pedido?.data_prevista}</data_prevista>
       <vendedor>${pedido.vendedor}</vendedor>
       <cliente>
         <nome>${cliente.nome}</nome>
@@ -37,6 +37,7 @@ export default class BlingProvider implements IBlingProvider {
     `;
 
     xml.trim().replace(',', '');
+    console.log(xml);
 
     await api.post<ICreateOrderDTO>('pedido/json/', null, {
       params: {
