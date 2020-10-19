@@ -2,6 +2,7 @@ import 'reflect-metadata';
 
 import express, { NextFunction, Response, Request } from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import 'express-async-errors';
 
 import AppError from '@shared/errors/AppError';
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.raw());
 
 // Implementando rotas
 app.use(routes);

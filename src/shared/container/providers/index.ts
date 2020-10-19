@@ -1,1 +1,2 @@
 import './PipedriveProvider';
+import './BlingProvider';
