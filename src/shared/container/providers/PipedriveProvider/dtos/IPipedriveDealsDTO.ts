@@ -1,4 +1,5 @@
 interface IDataDeal {
+  id: number;
   creator_user_id: {
     name: string;
     email: string;
@@ -30,11 +31,11 @@ interface IDataDeal {
   value: number;
   currency: string;
   status: string;
-  won_time: string;
   products_count: number;
-  first_won_time: string;
-  expected_close_date: string;
   formatted_value: string;
+  won_time: string;
+  close_time: string;
+  expected_close_date: string;
 }
 
 export default interface IPipedriveDealsDTO {

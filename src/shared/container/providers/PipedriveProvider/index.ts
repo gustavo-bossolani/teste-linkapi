@@ -1,7 +1,7 @@
 import { container } from 'tsyringe';
 
-import PipedriveProvider from './implementations/PipedriveProvider';
 import IPipedriveProvider from './models/IPipedriveProvider';
+import PipedriveProvider from './implementations/PipedriveProvider';
 
 container.registerSingleton<IPipedriveProvider>(
   'PipedriveProvider',

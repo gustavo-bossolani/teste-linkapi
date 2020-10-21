@@ -10,7 +10,7 @@
     "allowJs": true,
     "paths": {
       "@modules/*": ["modules/*"],
-      "@condig/*": ["config/*"],
+      "@config/*": ["config/*"],
       "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
