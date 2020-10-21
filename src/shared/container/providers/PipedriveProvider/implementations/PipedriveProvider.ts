@@ -10,7 +10,7 @@ export default class PipedriveProvider implements IPipedriveProvider {
     const response = await api.get<IPipedriveDealsDTO>('deals', {
       params: {
         status: 'won',
-        api_token: '3d1ab977bf06b65dca228bbc39954c3e4e258e73',
+        api_token: '',
       },
     });
 
@@ -24,7 +24,7 @@ export default class PipedriveProvider implements IPipedriveProvider {
       `deals/${deal_id}/products`,
       {
         params: {
-          api_token: '3d1ab977bf06b65dca228bbc39954c3e4e258e73',
+          api_token: '',
         },
       },
     );
