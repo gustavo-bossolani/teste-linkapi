@@ -2,13 +2,15 @@ import api from '../config/axios';
 
 import IBlingProvider from '../models/IBlingProvider';
 import ICreateOrderDTO from '../dtos/ICreateOrderDTO';
+import IRecoveredOrderResponseDTO from '../dtos/IRecoveredOrderResponseDTO';
+import ICreateOrderResponseDTO from '../dtos/ICreateOrderResponseDTO';
 
 export default class BlingProvider implements IBlingProvider {
-  public async createOrder({
+  public async createDeal({
     pedido,
     cliente,
     itens,
-  }: ICreateOrderDTO): Promise<void> {
+  }: ICreateOrderDTO): Promise<ICreateOrderResponseDTO> {
     const xml = `
     <?xml version="1.0" encoding="UTF-8"?>
     <pedido>
@@ -37,13 +39,31 @@ export default class BlingProvider implements IBlingProvider {
     `;
 
     xml.trim().replace(',', '');
-    console.log(xml);
 
-    await api.post<ICreateOrderDTO>('pedido/json/', null, {
-      params: {
-        apikey: '',
-        xml,
+    const response = await api.post<ICreateOrderResponseDTO>(
+      'pedido/json/',
+      null,
+      {
+        params: {
+          apikey: '',
+          xml,
+        },
       },
-    });
+    );
+
+    return response.data;
+  }
+
+  public async getDeals(): Promise<IRecoveredOrderResponseDTO> {
+    const response = await api.get<IRecoveredOrderResponseDTO>(
+      'pedidos/json/',
+      {
+        params: {
+          apikey: '',
+        },
+      },
+    );
+
+    return response.data;
   }
 }

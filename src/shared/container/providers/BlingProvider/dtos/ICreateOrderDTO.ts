@@ -1,11 +1,5 @@
-interface IDataItem {
-  codigo: string;
-  descricao: string;
-  qtd: number;
-  vlr_unit: number;
-}
-
 export default interface ICreateOrderDTO {
+  numero: string;
   pedido: {
     data: string;
     data_saida: string;
@@ -18,5 +12,12 @@ export default interface ICreateOrderDTO {
     email?: string;
   };
 
-  itens: IDataItem[];
+  itens: [
+    {
+      codigo: string;
+      descricao: string;
+      qtd: number;
+      vlr_unit: number;
+    },
+  ];
 }
