@@ -1,4 +1,19 @@
 export default interface ICreateOrderDTO {
-  name: string;
-  total: number;
+  numeroPedido: string;
+  data: string;
+  totalVenda: string;
+
+  cliente: {
+    nome: string;
+    email: string;
+    fone: string;
+  };
+  itens: [
+    {
+      codigo: string;
+      descricao: string;
+      quantidade: string;
+      valorUnidade: string;
+    },
+  ];
 }
