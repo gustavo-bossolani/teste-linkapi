@@ -6,6 +6,6 @@ const orderRouter = Router();
 
 const orderController = new OrderController();
 
-orderRouter.post('/', orderController.create);
+orderRouter.get('/', orderController.index);
 
 export default orderRouter;

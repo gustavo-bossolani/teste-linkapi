@@ -4,6 +4,6 @@ import orderRouter from '@modules/order/infra/http/routes/order.routes';
 
 const routes = Router();
 
-routes.use('/order', orderRouter);
+routes.use('/orders', orderRouter);
 
 export default routes;

@@ -1,19 +1,15 @@
 import { container } from 'tsyringe';
 import { Request, Response } from 'express';
 
-import CreateOrderService from '@modules/order/services/CreateOrderService';
+import ListOrdersService from '@modules/order/services/ListOrdersService';
+import StatusCode from '@shared/infra/http/routes/StatusCode';
 
 export default class OrderController {
-  public async create(request: Request, response: Response): Promise<Response> {
-    const { name, total } = request.body;
+  public async index(request: Request, response: Response): Promise<Response> {
+    const listOrders = container.resolve(ListOrdersService);
 
-    const createOrder = container.resolve(CreateOrderService);
+    const orders = await listOrders.execute();
 
-    const order = await createOrder.execute({
-      name,
-      total,
-    });
-
-    return response.status(201).json(order);
+    return response.status(StatusCode.OK).json(orders);
   }
 }
